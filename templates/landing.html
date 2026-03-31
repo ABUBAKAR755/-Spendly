@@ -29,7 +29,25 @@
         <div class="lp-actions">
             <a href="{{ url_for('register') }}" class="lp-btn">Create free account</a>
             <span class="lp-btn-sep">+</span>
-            <a href="#features" class="lp-btn">See how it works</a>
+            <button class="lp-btn" id="open-modal">See how it works</button>
+        </div>
+
+        <!-- YouTube modal -->
+        <div class="lp-modal-overlay" id="video-modal" aria-hidden="true">
+            <div class="lp-modal">
+                <button class="lp-modal-close" id="close-modal" aria-label="Close">&times;</button>
+                <div class="lp-modal-video">
+                    <iframe
+                        id="video-iframe"
+                        src=""
+                        data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1"
+                        title="See how Spendly works"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
         </div>
 
         <div class="lp-preview">
@@ -110,4 +128,42 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+    (function () {
+        var overlay = document.getElementById('video-modal');
+        var iframe  = document.getElementById('video-iframe');
+        var dataSrc = iframe.getAttribute('data-src');
+
+        function openModal() {
+            iframe.setAttribute('src', dataSrc);
+            overlay.classList.add('lp-modal-open');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            // Reset src to stop video playback immediately
+            iframe.setAttribute('src', '');
+            overlay.classList.remove('lp-modal-open');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('open-modal').addEventListener('click', openModal);
+        document.getElementById('close-modal').addEventListener('click', closeModal);
+
+        // Close on backdrop click (not on modal box itself)
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) closeModal();
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && overlay.classList.contains('lp-modal-open')) closeModal();
+        });
+    })();
+</script>
 {% endblock %}

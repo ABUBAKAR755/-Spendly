@@ -1,0 +1,249 @@
+/* ------------------------------------------------------------------ */
+/* Landing page — hero section overrides                               */
+/* ------------------------------------------------------------------ */
+
+:root {
+    --teal: #17a589;
+    --teal-light: #e8f7f4;
+}
+
+/* ------------------------------------------------------------------ */
+/* Hero layout                                                         */
+/* ------------------------------------------------------------------ */
+
+.lp-hero {
+    padding: 4rem 2rem 5rem;
+    text-align: center;
+}
+
+.lp-hero-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Badge                                                               */
+/* ------------------------------------------------------------------ */
+
+.lp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--teal-light);
+    color: var(--teal);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+}
+
+.lp-badge-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Title                                                               */
+/* ------------------------------------------------------------------ */
+
+.lp-title {
+    font-family: var(--font-body);
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin: 0;
+}
+
+.lp-title-accent {
+    color: var(--teal);
+}
+
+/* ------------------------------------------------------------------ */
+/* Subtitle                                                            */
+/* ------------------------------------------------------------------ */
+
+.lp-subtitle {
+    font-size: 1rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* CTA buttons                                                         */
+/* ------------------------------------------------------------------ */
+
+.lp-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.lp-btn {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.7rem 1.6rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.lp-btn:hover {
+    background: var(--teal);
+}
+
+.lp-btn-sep {
+    font-size: 1rem;
+    color: var(--ink-faint);
+    font-weight: 400;
+    user-select: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* App preview frame                                                   */
+/* ------------------------------------------------------------------ */
+
+.lp-preview {
+    width: 100%;
+    max-width: 660px;
+    background: #eeecea;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 0.5rem;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+}
+
+.lp-preview-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.75rem 1rem;
+}
+
+.lp-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.lp-dot-red    { background: #ff5f57; }
+.lp-dot-yellow { background: #ffbd2e; }
+.lp-dot-green  { background: #28c840; }
+
+.lp-preview-body {
+    background: #ffffff;
+    margin: 0 0.75rem 0.75rem;
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Stat cards                                                          */
+/* ------------------------------------------------------------------ */
+
+.lp-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.lp-stat {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.1rem;
+    text-align: left;
+}
+
+.lp-stat-label {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.3rem;
+}
+
+.lp-stat-value {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+}
+
+.lp-stat-sub {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.lp-sub-red   { color: #e74c3c; }
+.lp-sub-teal  { color: var(--teal); }
+.lp-sub-muted { color: var(--ink-muted); }
+
+/* ------------------------------------------------------------------ */
+/* Category bar chart                                                  */
+/* ------------------------------------------------------------------ */
+
+.lp-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.lp-chart-row {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.lp-chart-cat {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-align: left;
+}
+
+.lp-chart-track {
+    height: 10px;
+    background: var(--border-soft);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.lp-chart-fill {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.lp-fill-orange { background: #e67e22; }
+.lp-fill-blue   { background: #3498db; }
+.lp-fill-purple { background: #8e44ad; }
+
+/* ------------------------------------------------------------------ */
+/* Responsive                                                          */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+    .lp-title { font-size: 2rem; }
+    .lp-stats { grid-template-columns: 1fr; }
+    .lp-preview-body { padding: 1rem; }
+}
